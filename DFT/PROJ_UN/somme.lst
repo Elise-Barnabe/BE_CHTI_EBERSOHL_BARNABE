@@ -1,0 +1,80 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 thumb
+    2 00000000                 area             moncode, code, readonly
+    3 00000000                 export           somme
+    4 00000000                 import           TabSin
+    5 00000000                 import           TabCos
+    6 00000000         
+    7 00000000         somme   proc
+    8 00000000 4A05            ldr              r2, =TabCos
+    9 00000002 F932 1010       ldrsh            r1, [r2,r0, lsl #1]
+   10 00000006 FB01 F301       mul              r3, r1, r1
+   11 0000000A 4A04            ldr              r2, =TabSin
+   12 0000000C F932 1010       ldrsh            r1, [r2, r0, lsl #1]
+   13 00000010 FB01 FC01       mul              r12, r1, r1
+   14 00000014 4463            add              r3, r12
+   15 00000016 4770            bx               lr
+   16 00000018         
+   17 00000018                 endp
+   18 00000018                 end
+              00000000 
+              00000000 
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
+ork --depend=.\obj\somme.d -o.\obj\somme.o -I.\RTE\_Simu -IC:\Users\antoi\AppDa
+ta\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include -IC:\Users\antoi\AppData\
+Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include --predefine="__EVAL SET
+A 1" --predefine="__MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA 529" -
+-predefine="_RTE_ SETA 1" --predefine="STM32F10X_MD SETA 1" --list=somme.lst So
+mme.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+moncode 00000000
+
+Symbol: moncode
+   Definitions
+      At line 2 in file Somme.s
+   Uses
+      None
+Comment: moncode unused
+somme 00000000
+
+Symbol: somme
+   Definitions
+      At line 7 in file Somme.s
+   Uses
+      At line 3 in file Somme.s
+Comment: somme used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+External symbols
+
+TabCos 00000000
+
+Symbol: TabCos
+   Definitions
+      At line 5 in file Somme.s
+   Uses
+      At line 8 in file Somme.s
+Comment: TabCos used once
+TabSin 00000000
+
+Symbol: TabSin
+   Definitions
+      At line 4 in file Somme.s
+   Uses
+      At line 11 in file Somme.s
+Comment: TabSin used once
+2 symbols
+341 symbols in table

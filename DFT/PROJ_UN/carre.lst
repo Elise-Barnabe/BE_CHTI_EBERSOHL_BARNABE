@@ -1,0 +1,120 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 thumb
+    2 00000000                 area             moncode, code, readonly
+    3 00000000                 export           timer_callback
+    4 00000000 40010C10 
+                       GPIOB_BSRR
+                               equ              0x40010C10
+    5 00000000                 extern           variable
+    6 00000000         
+    7 00000000         timer_callback
+                               proc
+    8 00000000         ;charge l'adresse variable dans r2
+    9 00000000 4A09            ldr              r2,=variable
+   10 00000002         ; charge valeur de variable dans r0
+   11 00000002 6810            ldr              r0,[r2]
+   12 00000004         ; condition si r0==0 allez à cond
+   13 00000004 B938            cbnz             r0, cond
+   14 00000006         
+   15 00000006         ;mise à 0
+   16 00000006         
+   17 00000006         
+   18 00000006 4B09            ldr              r3, =GPIOB_BSRR
+   19 00000008         ;on met ce qu'il y a dans r2 dans r1 donc adresse variab
+                       le
+   20 00000008 F04F 0102       mov              r1, #0x00000002
+   21 0000000C         ;store ce qu'il y a dans r1 vers r3 adresse variable dan
+                       s r3
+   22 0000000C 6019            str              r1, [r3]
+   23 0000000E         ;on met r1 à 1
+   24 0000000E F04F 0101       mov              r1, #1
+   25 00000012         ; on met 1 dans variable
+   26 00000012 6011            str              r1,[r2]
+   27 00000014 4770            bx               lr
+   28 00000016         
+   29 00000016 4B05    cond    ldr              r3, =GPIOB_BSRR
+   30 00000018 F44F 3100       mov              r1, #0x00020000
+   31 0000001C 6019            str              r1, [r3]
+   32 0000001E F04F 0100       mov              r1,#0
+   33 00000022 6011            str              r1,[r2]
+   34 00000024 4770            bx               lr
+   35 00000026         
+   36 00000026                 endp
+   37 00000026                 end
+              00 00 00000000 
+              40010C10 
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
+ork --depend=.\obj\carre.d -o.\obj\carre.o -I.\RTE\_Simu -IC:\Users\antoi\AppDa
+ta\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include -IC:\Users\antoi\AppData\
+Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include --predefine="__EVAL SET
+A 1" --predefine="__MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA 529" -
+-predefine="_RTE_ SETA 1" --predefine="STM32F10X_MD SETA 1" --list=carre.lst Sr
+c\Carre.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+cond 00000016
+
+Symbol: cond
+   Definitions
+      At line 29 in file Src\Carre.s
+   Uses
+      At line 13 in file Src\Carre.s
+Comment: cond used once
+moncode 00000000
+
+Symbol: moncode
+   Definitions
+      At line 2 in file Src\Carre.s
+   Uses
+      None
+Comment: moncode unused
+timer_callback 00000000
+
+Symbol: timer_callback
+   Definitions
+      At line 7 in file Src\Carre.s
+   Uses
+      At line 3 in file Src\Carre.s
+Comment: timer_callback used once
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Absolute symbols
+
+GPIOB_BSRR 40010C10
+
+Symbol: GPIOB_BSRR
+   Definitions
+      At line 4 in file Src\Carre.s
+   Uses
+      At line 18 in file Src\Carre.s
+      At line 29 in file Src\Carre.s
+
+1 symbol
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+External symbols
+
+variable 00000000
+
+Symbol: variable
+   Definitions
+      At line 5 in file Src\Carre.s
+   Uses
+      At line 9 in file Src\Carre.s
+Comment: variable used once
+1 symbol
+342 symbols in table
