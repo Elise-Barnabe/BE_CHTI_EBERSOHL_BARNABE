@@ -1,0 +1,18 @@
+	AREA Signal, DATA, READONLY
+	export Table_Signal
+
+; Fnor = 2.000
+;   Ph = 0.000
+;    A = 1024.000
+
+TabSig
+	DCW	3072	;  0 0x0c00  0.75000
+	DCW	2048	;  1 0x0800  0.50000
+	DCW	1024	;  2 0x0400  0.25000
+	DCW	2048	;  3 0x0800  0.50000
+	DCW	3072	;  4 0x0c00  0.75000
+	DCW	2048	;  5 0x0800  0.50000
+	DCW	1024	;  6 0x0400  0.25000
+	DCW	2048	;  7 0x0800  0.50000
+
+	END
