@@ -1,0 +1,25 @@
+	AREA Trigo, DATA, READONLY
+	export TabSin
+	export TabCos
+
+TabCos
+	DCW	32767	;  0 0x7fff  0.99997
+	DCW	23170	;  1 0x5a82  0.70709
+	DCW	    0	;  2 0x0000  0.00000
+	DCW	-23170	;  3 0xa57e -0.70709
+	DCW	-32768	;  4 0x8000 -1.00000
+	DCW	-23170	;  5 0xa57e -0.70709
+	DCW	    0	;  6 0x0000  0.00000
+	DCW	23170	;  7 0x5a82  0.70709
+TabSin
+	DCW	    0	;  0 0x0000  0.00000
+	DCW	23170	;  1 0x5a82  0.70709
+	DCW	32767	;  2 0x7fff  0.99997
+	DCW	23170	;  3 0x5a82  0.70709
+	DCW	    0	;  4 0x0000  0.00000
+	DCW	-23170	;  5 0xa57e -0.70709
+	DCW	-32768	;  6 0x8000 -1.00000
+	DCW	-23170	;  7 0xa57e -0.70709
+
+	END
+
