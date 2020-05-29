@@ -1,9 +1,9 @@
 ﻿<!DOCTYPE html>
 <html>
 <body id="readme">
-<div>Génération signal audio OK!</div>
-<div>Pour verifier qu'on a bien 91 micro secondes entre deux echantillons on place un point d'arrêt ligne 58 dans carre.s au niveau du STR</div>
-<div>Ensuite on verifie qu'entre deux accès au point d'arrets il se passe 91 micro secondes en regardant l'horloge de keil</div>
-<div>On obtient la courbe attendu du signal audio</div>
+<div>Objectif 4 OK</div>
+<div>Pour vérifier on peut placer un point d'arrêt à la ligne 50 du principal.c là ou on incrémente le score</div>
+<div>On remarque bien que lorsque le score s'incrémente le son est émis (la courbe du son remonte car elle revient au début ou il est fort)</div>
+<div></div>
 </body>
 </html>
